@@ -50,30 +50,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String result;
 
         if (controller.isValidInput(firstText.getText().toString(), secondText.getText().toString())) {
+            String firstNumber = firstText.getText().toString();
+            String secondNumber = secondText.getText().toString();
+
             switch (view.getId()) {
                 case R.id.btn_add:
-                    result = controller.calculate(firstText.getText().toString(),
-                            secondText.getText().toString(), '+');
+                    result = controller.calculate(firstNumber, secondNumber, '+');
                     showResult(result);
-                    System.out.println("Plus " + result);
                     break;
                 case R.id.btn_subtract:
-                    result = controller.calculate(firstText.getText().toString(),
-                            secondText.getText().toString(), '-');
+                    result = controller.calculate(firstNumber, secondNumber, '-');
                     showResult(result);
-                    System.out.println("Minus " + result);
                     break;
                 case R.id.btn_multiply:
-                    result = controller.calculate(firstText.getText().toString(),
-                            secondText.getText().toString(), '*');
+                    result = controller.calculate(firstNumber, secondNumber, '*');
                     showResult(result);
-                    System.out.println("Multi " + result);
                     break;
                 case R.id.btn_divide:
-                    result = controller.calculate(firstText.getText().toString(),
-                            secondText.getText().toString(), '/');
+                    result = controller.calculate(firstNumber, secondNumber, '/');
                     showResult(result);
-                    System.out.println("Division " + result);
                     break;
                 default:
                     break;
