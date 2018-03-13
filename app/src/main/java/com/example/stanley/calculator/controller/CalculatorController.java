@@ -8,20 +8,25 @@ public class CalculatorController {
 
     public String calculate(String first, String second, char operator) {
         String result;
+        Double number;
 
         switch (operator) {
             case '+':
-                result = add(first, second);
+                number = add(first, second);
+                result = String.format("%.2f", number);
                 break;
             case '-':
-                result = subtract(first, second);
+                number = subtract(first, second);
+                result = String.format("%.2f", number);
                 break;
             case '*':
-                result = multiply(first, second);
+                number = multiply(first, second);
+                result = String.format("%.2f", number);
                 break;
             case '/':
                 if (isDivisible(second)) {
-                    result = divide(first, second);
+                    number = divide(first, second);
+                    result = String.format("%.2f", number);
                 } else {
                     result = "Can't divide by 0";
                 }
@@ -41,20 +46,20 @@ public class CalculatorController {
         }
     }
 
-    private String add(String first, String second) {
-        return Double.toString(Double.parseDouble(first) + Double.parseDouble(second));
+    private Double add(String first, String second) {
+        return Double.parseDouble(first) + Double.parseDouble(second);
     }
 
-    private String subtract(String first, String second) {
-        return Double.toString(Double.parseDouble(first) - Double.parseDouble(second));
+    private Double subtract(String first, String second) {
+        return Double.parseDouble(first) - Double.parseDouble(second);
     }
 
-    private String multiply(String first, String second) {
-        return Double.toString(Double.parseDouble(first) * Double.parseDouble(second));
+    private Double multiply(String first, String second) {
+        return Double.parseDouble(first) * Double.parseDouble(second);
     }
 
-    private String divide(String first, String second) {
-        return Double.toString(Double.parseDouble(first) / Double.parseDouble(second));
+    private Double divide(String first, String second) {
+        return Double.parseDouble(first) / Double.parseDouble(second);
     }
 
     private boolean isDivisible(String second) {
